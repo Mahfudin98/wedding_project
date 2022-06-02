@@ -1,206 +1,219 @@
 <template>
-  <header
-    class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10"
-  >
-    <div class="container">
-      <div class="flex items-center justify-between relative">
-        <div class="flex px-4">
-          <img
-            alt="Vue logo"
-            class="block py-6"
-            src="@/assets/logo.svg"
-            width="50"
-            height="50"
-          />
-        </div>
-        <div class="flex items-center px-4">
-          <button
-            @click="burger"
-            id="burger"
-            name="burger"
-            type="button"
-            class="block absolute right-4 lg:hidden"
+  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800">
+    <div class="container flex flex-wrap justify-between items-center mx-auto">
+      <a href="https://flowbite.com" class="flex items-center">
+        <img
+          src="@/assets/logo.svg"
+          class="mr-3 h-6 sm:h-9"
+          alt="Flowbite Logo"
+        />
+        <span
+          class="
+            self-center
+            text-xl
+            font-semibold
+            whitespace-nowrap
+            dark:text-white
+          "
+          >Flowbite</span
+        >
+      </a>
+      <div class="flex md:order-2">
+        <button
+          id="theme-toggle"
+          @click="dark_toggle = !dark_toggle"
+          type="button"
+          class="
+            text-gray-500
+            dark:text-gray-400
+            hover:bg-gray-100
+            dark:hover:bg-gray-700
+            focus:outline-none focus:ring-4 focus:ring-gray-200
+            dark:focus:ring-gray-700
+            rounded-lg
+            text-sm
+            p-2.5
+          "
+        >
+          <svg
+            id="theme-toggle-dark-icon"
+            class="w-5 h-5"
+            :class="dark_toggle ? 'hidden' : ''"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span
-              class="
-                burger-line
-                transition
-                duration-300
-                ease-in-out
-                origin-top-left
-              "
-            ></span>
-            <span
-              class="burger-line transition duration-300 ease-in-out"
-            ></span>
-            <span
-              class="
-                burger-line
-                transition
-                duration-300
-                ease-in-out
-                origin-bottom-left
-              "
-            ></span>
-          </button>
-          <nav
-            id="nav-menu"
-            class="
-              hidden
-              absolute
-              py-5
-              bg-white
-              shadow-lg
-              rounded-lg
-              max-w-[250px]
-              w-full
-              right-4
-              top-full
-              lg:block
-              lg:static
-              lg:bg-transparent
-              lg:max-w-full
-              lg:shadow-none
-              lg:rounded-none
-              dark:bg-dark dark:shadow-slate-500
-              lg:dark:bg-transparent
-            "
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path>
+          </svg>
+          <svg
+            id="theme-toggle-light-icon"
+            class="w-5 h-5"
+            :class="dark_toggle ? '' : 'hidden'"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <ul class="block lg:flex">
-              <li class="group">
-                <a
-                  href="#home"
-                  class="
-                    text-base text-dark
-                    dark:text-white
-                    py-2
-                    mx-5
-                    flex
-                    group-hover:text-primary
-                  "
-                  >Home</a
-                >
-              </li>
-              <li class="group">
-                <a
-                  href="#features"
-                  class="
-                    text-base text-dark
-                    dark:text-white
-                    py-2
-                    mx-5
-                    flex
-                    group-hover:text-primary
-                  "
-                  >Features</a
-                >
-              </li>
-              <li class="group">
-                <a
-                  href="#screenshot"
-                  class="
-                    text-base text-dark
-                    dark:text-white
-                    py-2
-                    mx-5
-                    flex
-                    group-hover:text-primary
-                  "
-                  >Screenshot</a
-                >
-              </li>
-              <li class="group">
-                <a
-                  href="#testimonial"
-                  class="
-                    text-base text-dark
-                    dark:text-white
-                    py-2
-                    mx-5
-                    flex
-                    group-hover:text-primary
-                  "
-                  >Testimonial</a
-                >
-              </li>
-              <li class="group">
-                <a
-                  href="#pricing"
-                  class="
-                    text-base text-dark
-                    dark:text-white
-                    py-2
-                    mx-5
-                    flex
-                    group-hover:text-primary
-                  "
-                  >Pricing</a
-                >
-              </li>
-              <li class="group">
-                <a
-                  href="#contact"
-                  class="
-                    text-base text-dark
-                    dark:text-white
-                    py-2
-                    mx-5
-                    flex
-                    group-hover:text-primary
-                  "
-                  >Contact Us</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="hidden lg:flex lg:items-center lg:px-4">
-          <ul class="block lg:flex">
-            <li class="flex items-center pl-8">
-              <div class="flex">
-                <span class="mr-2 text-sm text-slate-500">light</span>
-                <input
-                  type="checkbox"
-                  name="dark-toggle"
-                  v-model="dark_toggle"
-                  id="dark-toggle"
-                  class="hidden"
-                />
-                <label for="dark-toggle">
-                  <div
-                    class="
-                      flex
-                      h-5
-                      w-9
-                      cursor-pointer
-                      items-center
-                      rounded-full
-                      bg-slate-500
-                      p-1
-                    "
-                  >
-                    <div
-                      class="
-                        toggle-circle
-                        h-4
-                        w-4
-                        rounded-full
-                        bg-white
-                        transition
-                        duration-300
-                        ease-in-out
-                      "
-                    ></div>
-                  </div>
-                </label>
-                <span class="ml-2 text-sm text-slate-500">dark</span>
-              </div>
-            </li>
-          </ul>
-        </div>
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <button
+          data-collapse-toggle="mobile-menu-4"
+          type="button"
+          class="
+            inline-flex
+            items-center
+            p-2
+            text-sm text-gray-500
+            rounded-lg
+            md:hidden
+            hover:bg-gray-100
+            focus:outline-none focus:ring-2 focus:ring-gray-200
+            dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600
+          "
+          aria-controls="mobile-menu-4"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <svg
+            class="hidden w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div
+        class="
+          hidden
+          justify-between
+          items-center
+          w-full
+          md:flex md:w-auto md:order-1
+        "
+        id="mobile-menu-4"
+      >
+        <ul
+          class="
+            flex flex-col
+            mt-4
+            md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium
+          "
+        >
+          <li>
+            <a
+              href="#"
+              class="
+                block
+                py-2
+                pr-4
+                pl-3
+                text-white
+                bg-blue-700
+                rounded
+                md:bg-transparent md:text-blue-700 md:p-0
+                dark:text-white
+              "
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="
+                block
+                py-2
+                pr-4
+                pl-3
+                text-gray-700
+                border-b border-gray-100
+                hover:bg-gray-50
+                md:hover:bg-transparent
+                md:border-0
+                md:hover:text-blue-700
+                md:p-0
+                md:dark:hover:text-white
+                dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white
+                md:dark:hover:bg-transparent
+                dark:border-gray-700
+              "
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="
+                block
+                py-2
+                pr-4
+                pl-3
+                text-gray-700
+                border-b border-gray-100
+                hover:bg-gray-50
+                md:hover:bg-transparent
+                md:border-0
+                md:hover:text-blue-700
+                md:p-0
+                md:dark:hover:text-white
+                dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white
+                md:dark:hover:bg-transparent
+                dark:border-gray-700
+              "
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="
+                block
+                py-2
+                pr-4
+                pl-3
+                text-gray-700
+                border-b border-gray-100
+                hover:bg-gray-50
+                md:hover:bg-transparent
+                md:border-0
+                md:hover:text-blue-700
+                md:p-0
+                md:dark:hover:text-white
+                dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white
+                md:dark:hover:bg-transparent
+                dark:border-gray-700
+              "
+              >Contact</a
+            >
+          </li>
+        </ul>
       </div>
     </div>
-  </header>
+  </nav>
 </template>
 
 <script>
@@ -211,39 +224,29 @@ export default {
       dark_toggle: false,
     };
   },
-  created() {
-    window.addEventListener("click", this.handleClick);
-  },
-  destroyed() {
-    window.removeEventListener("click", this.handleClick);
-  },
   computed: {
     darkToggle() {
-      if (this.dark_toggle == true) {
-        html.classList.add("dark");
-        localStorage.theme = "dark";
+      if (localStorage.getItem("color-theme")) {
+        if (localStorage.getItem('color-theme') === 'light') {
+            html.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+            this.dark_toggle == true;
+        } else {
+            html.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+            this.dark_toggle == false;
+        }
+        
       } else {
-        html.classList.remove("dark");
-        localStorage.theme = "light";
-      }
-    },
-  },
-  methods: {
-    burger(event) {
-      const navMenu = document.querySelector("#nav-menu");
-      const burger = document.querySelector("#burger");
-
-      burger.classList.toggle("burger-active");
-      navMenu.classList.toggle("hidden");
-    },
-
-    handleClick(event) {
-      const navMenu = document.querySelector("#nav-menu");
-      const burger = document.querySelector("#burger");
-
-      if (event.target != burger && event.target != navMenu) {
-        burger.classList.remove("burger-active");
-        navMenu.classList.add("hidden");
+        if (html.classList.contains("dark")) {
+            html.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+            this.dark_toggle == false;
+        } else {
+            html.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+            this.dark_toggle == true;
+        }
       }
     },
   },

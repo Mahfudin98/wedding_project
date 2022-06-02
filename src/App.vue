@@ -12,23 +12,23 @@ import Header from "@/components/Header.vue";
 
 <script>
 export default {
-  created () {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  destroyed () {
-    window.removeEventListener('scroll', this.handleScroll);
-  },
-  methods: {
-    handleScroll (event) {
-      const header = document.querySelector('header');
-      const fixnav = header.offsetTop;
+  // created () {
+  //   window.addEventListener('scroll', this.handleScroll);
+  // },
+  // destroyed () {
+  //   window.removeEventListener('scroll', this.handleScroll);
+  // },
+  // methods: {
+  //   handleScroll (event) {
+  //     const header = document.querySelector('header');
+  //     const fixnav = header.offsetTop;
 
-      if (window.pageYOffset > fixnav) {
-          header.classList.add('nav-fixed');
-      } else {
-          header.classList.remove('nav-fixed');
-      }
-    }
-  },
+  //     if (window.pageYOffset > fixnav) {
+  //         header.classList.add('nav-fixed');
+  //     } else {
+  //         header.classList.remove('nav-fixed');
+  //     }
+  //   }
+  // },
 }
 </script>

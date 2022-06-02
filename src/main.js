@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import './assets/tailwind.css'
+import 'flowbite'
 import App from './App.vue'
 import router from './router'
 
