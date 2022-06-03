@@ -10,9 +10,26 @@ module.exports = {
       center: true,
       padding: '16px',
     },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    fontFamily: {
+      sans: ['Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
     extend: {
       fontFamily: {
         sans: ["Nunito"],
+      },
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
+      borderRadius: {
+        '4xl': '2rem',
       },
       colors: {
         primary: '#0f766e',
