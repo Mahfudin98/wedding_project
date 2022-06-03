@@ -21,7 +21,7 @@
       <div class="flex md:order-2">
         <button
           id="theme-toggle"
-          @click="dark_toggle = !dark_toggle"
+          @click="darkToggle"
           type="button"
           class="
             text-gray-500
@@ -38,7 +38,7 @@
           <svg
             id="theme-toggle-dark-icon"
             class="w-5 h-5"
-            :class="dark_toggle ? 'hidden' : ''"
+            :class="isDark ? '' : 'hidden'"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@
           <svg
             id="theme-toggle-light-icon"
             class="w-5 h-5"
-            :class="dark_toggle ? '' : 'hidden'"
+            :class="isDark ? 'hidden' : ''"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -219,35 +219,20 @@
 <script>
 import { html } from "../main";
 export default {
+  created() {
+      html.classList[this.isDark ? "add" : "remove"]("dark")
+    },
   data() {
+    let isDark = localStorage.getItem("darkMode") == "true";
     return {
-      dark_toggle: false,
+      isDark,
     };
   },
-  computed: {
+  methods: {
     darkToggle() {
-      if (localStorage.getItem("color-theme")) {
-        if (localStorage.getItem('color-theme') === 'light') {
-            html.classList.add("dark");
-            localStorage.setItem("color-theme", "dark");
-            this.dark_toggle == true;
-        } else {
-            html.classList.remove("dark");
-            localStorage.setItem("color-theme", "light");
-            this.dark_toggle == false;
-        }
-        
-      } else {
-        if (html.classList.contains("dark")) {
-            html.classList.remove("dark");
-            localStorage.setItem("color-theme", "light");
-            this.dark_toggle == false;
-        } else {
-            html.classList.add("dark");
-            localStorage.setItem("color-theme", "dark");
-            this.dark_toggle == true;
-        }
-      }
+      this.isDark = !this.isDark;
+      localStorage.setItem("darkMode", this.isDark);
+      html.classList[this.isDark ? "add" : "remove"]("dark")
     },
   },
 };
