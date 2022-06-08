@@ -50,7 +50,7 @@
         >
           <svg
             id="theme-toggle-dark-icon"
-            class="w-5 h-5"
+            class="w-7 h-7 text-warning"
             :class="isDark ? '' : 'hidden'"
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -62,7 +62,7 @@
           </svg>
           <svg
             id="theme-toggle-light-icon"
-            class="w-5 h-5"
+            class="w-7 h-7 text-warning"
             :class="isDark ? 'hidden' : ''"
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -136,14 +136,7 @@
             md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium
           "
         >
-          <ul
-            class="
-              flex flex-col
-              mt-4
-              md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium
-            "
-          >
-            <li>
+          <li>
               <a
                 href="#home"
                 class="
@@ -163,7 +156,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="#featur"
                 class="
                   block
                   py-2
@@ -183,7 +176,7 @@
                   md:dark:hover:bg-transparent
                   dark:border-gray-700
                 "
-                >About</a
+                >Features</a
               >
             </li>
             <li>
@@ -208,7 +201,7 @@
                   md:dark:hover:bg-transparent
                   dark:border-gray-700
                 "
-                >Services</a
+                >Screenshot</a
               >
             </li>
             <li>
@@ -233,10 +226,59 @@
                   md:dark:hover:bg-transparent
                   dark:border-gray-700
                 "
-                >Contact</a
+                >Testimonial</a
               >
             </li>
-          </ul>
+            <li>
+              <a
+                href="#"
+                class="
+                  block
+                  py-2
+                  pr-4
+                  pl-3
+                  text-gray-700
+                  border-b border-gray-100
+                  hover:bg-gray-50
+                  md:hover:bg-transparent
+                  md:border-0
+                  md:hover:text-primabg-primary
+                  md:p-0
+                  md:dark:hover:text-white
+                  dark:text-gray-400
+                  dark:hover:bg-gray-700
+                  dark:hover:text-white
+                  md:dark:hover:bg-transparent
+                  dark:border-gray-700
+                "
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="
+                  block
+                  py-2
+                  pr-4
+                  pl-3
+                  text-gray-700
+                  border-b border-gray-100
+                  hover:bg-gray-50
+                  md:hover:bg-transparent
+                  md:border-0
+                  md:hover:text-primabg-primary
+                  md:p-0
+                  md:dark:hover:text-white
+                  dark:text-gray-400
+                  dark:hover:bg-gray-700
+                  dark:hover:text-white
+                  md:dark:hover:bg-transparent
+                  dark:border-gray-700
+                "
+                >Contact Us</a
+              >
+            </li>
         </ul>
       </div>
     </div>
